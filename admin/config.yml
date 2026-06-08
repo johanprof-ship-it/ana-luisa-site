@@ -1,0 +1,56 @@
+backend:
+  name: git-gateway
+  branch: main
+
+media_folder: "uploads"
+public_folder: "/uploads"
+
+collections:
+  - name: "config"
+    label: "Configuração do Site"
+    files:
+      - name: "site"
+        label: "Informações do Site"
+        file: "config/site.json"
+        fields:
+          - { label: "Nome", name: "nome", widget: "string" }
+          - { label: "Tagline", name: "tagline", widget: "string" }
+          - { label: "Descrição", name: "descricao", widget: "text" }
+          - { label: "Telefone", name: "telefone", widget: "string" }
+          - { label: "Email", name: "email", widget: "string" }
+          - { label: "Instagram", name: "instagram", widget: "string" }
+          - { label: "Localização", name: "localizacao", widget: "string" }
+
+  - name: "portfolio"
+    label: "Portfólio"
+    folder: "portfolio"
+    create: true
+    slug: "{{slug}}"
+    fields:
+      - { label: "Título", name: "titulo", widget: "string" }
+      - { label: "Categoria", name: "categoria", widget: "select", options: ["Casamento", "Retrato", "Evento", "Família", "Paisagem", "Outro"] }
+      - { label: "Foto", name: "foto", widget: "image" }
+      - { label: "Descrição", name: "descricao", widget: "text" }
+
+  - name: "servicos"
+    label: "Serviços"
+    folder: "servicos"
+    create: true
+    slug: "{{slug}}"
+    fields:
+      - { label: "Ícone", name: "icone", widget: "string" }
+      - { label: "Nome", name: "nome", widget: "string" }
+      - { label: "Descrição", name: "descricao", widget: "text" }
+      - { label: "Preço", name: "preco", widget: "string" }
+      - { label: "Nota do Preço", name: "nota_preco", widget: "string" }
+
+  - name: "depoimentos"
+    label: "Depoimentos"
+    folder: "depoimentos"
+    create: true
+    slug: "{{slug}}"
+    fields:
+      - { label: "Depoimento", name: "depoimento", widget: "text" }
+      - { label: "Nome", name: "nome", widget: "string" }
+      - { label: "Evento", name: "evento", widget: "string" }
+      - { label: "Ano", name: "ano", widget: "string" }
