@@ -83,6 +83,20 @@
         .nav-links a:hover { color: var(--text); }
         .nav-links a:hover::after { width: 100%; }
 
+        .nav-contact {
+            display: flex;
+            gap: 1.5rem;
+            align-items: center;
+        }
+
+        .nav-contact a {
+            font-size: 0.8rem;
+            color: var(--text-muted);
+            transition: color 0.3s;
+        }
+
+        .nav-contact a:hover { color: var(--accent); }
+
         .hamburger {
             display: none;
             flex-direction: column;
@@ -116,9 +130,9 @@
             position: absolute;
             inset: 0;
             background: 
-                linear-gradient(135deg, rgba(10,10,10,0.7), rgba(10,10,10,0.3)),
-                url('https://images.unsplash.com/photo-1554048612-b6a482bc67e5?w=1920&q=80') center/cover;
-            filter: grayscale(30%);
+                linear-gradient(135deg, rgba(10,10,10,0.8), rgba(10,10,10,0.4)),
+                url('uploads/ana-luisa-profile.jpg') center/cover;
+            filter: grayscale(20%);
             transform: scale(1.05);
             animation: heroZoom 20s ease-in-out infinite alternate;
         }
@@ -515,6 +529,52 @@
 
         .contact-details .icon { font-size: 1.2rem; }
 
+        .whatsapp-buttons {
+            display: flex;
+            flex-direction: column;
+            gap: 1rem;
+        }
+
+        .whatsapp-buttons h4 {
+            font-family: var(--serif);
+            font-size: 1.1rem;
+            font-weight: 400;
+            margin-bottom: 0.5rem;
+        }
+
+        .whatsapp-btn {
+            display: flex;
+            align-items: center;
+            gap: 1rem;
+            padding: 1rem 1.5rem;
+            background: #25D366;
+            color: white;
+            border-radius: 8px;
+            font-size: 0.95rem;
+            font-weight: 500;
+            transition: all 0.3s;
+        }
+
+        .whatsapp-btn:hover {
+            background: #128C7E;
+            transform: translateX(5px);
+        }
+
+        .whatsapp-btn span {
+            font-size: 1.3rem;
+        }
+
+        .whatsapp-btn-outline {
+            background: transparent;
+            border: 1px solid #25D366;
+            color: #25D366;
+        }
+
+        .whatsapp-btn-outline:hover {
+            background: #25D366;
+            color: white;
+        }
+
         .contact-form {
             display: flex;
             flex-direction: column;
@@ -652,6 +712,10 @@
     <!-- NAV -->
     <nav class="nav" id="nav">
         <a href="#" class="nav-logo">Ana Luisa Santos</a>
+        <div class="nav-contact">
+            <a href="https://wa.me/5581993187315" class="nav-whatsapp" target="_blank">📱 WhatsApp</a>
+            <a href="https://instagram.com/luisa0_202" class="nav-instagram" target="_blank">📸 @luisa0_202</a>
+        </div>
         <ul class="nav-links" id="navLinks">
             <li><a href="#portfolio">Portfólio</a></li>
             <li><a href="#sobre">Sobre</a></li>
@@ -881,33 +945,32 @@
         </div>
         <div class="contact-grid">
             <div class="contact-info reveal">
-                <h3>Agende sua sessão</h3>
-                <p>Do clique à entrega, cuidamos de cada detalhe para contar a história do seu sabor. Entre em contato!</p>
+                <h3>Fale comigo pelo WhatsApp</h3>
+                <p>Escolha o serviço que mais te interessa e me chame no WhatsApp! Respondo rapidinho. 😊</p>
                 <ul class="contact-details">
                     <li><span class="icon">📱</span> (81) 99318-7315</li>
-                    <li><span class="icon">💬</span> WhatsApp disponível</li>
                     <li><span class="icon">📸</span> @luisa0_202</li>
                     <li><span class="icon">📍</span> Recife, PE — Brasil</li>
                 </ul>
             </div>
-            <form class="contact-form reveal" onsubmit="handleSubmit(event)">
-                <div class="form-row">
-                    <input type="text" placeholder="Seu nome" required>
-                    <input type="email" placeholder="Seu email" required>
-                </div>
-                <select required>
-                    <option value="" disabled selected>Tipo de sessão</option>
-                    <option>Gastronomia</option>
-                    <option>Evento / Aniversário</option>
-                    <option>Pousada / Hotel</option>
-                    <option>Ensaio de casal</option>
-                    <option>Ensaio de família</option>
-                    <option>Outro</option>
-                </select>
-                <input type="text" placeholder="Data pretendida (ex: 15/08/2026)">
-                <textarea id="contato-msg" placeholder="Conte-me mais sobre o que você precisa..."></textarea>
-                <button type="submit" class="btn-submit">Enviar mensagem</button>
-            </form>
+            <div class="whatsapp-buttons reveal">
+                <h4>Escolha o serviço:</h4>
+                <a href="https://wa.me/5581993187315?text=Olá! Quero fotos profissionais para meu restaurante/cardápio. Podemos conversar?" class="whatsapp-btn" target="_blank">
+                    <span>🍽️</span> Fotografar meu cardápio
+                </a>
+                <a href="https://wa.me/5581993187315?text=Olá! Quero registrar um evento. Podemos conversar?" class="whatsapp-btn" target="_blank">
+                    <span>🎉</span> Cobrir meu evento
+                </a>
+                <a href="https://wa.me/5581993187315?text=Olá! Quero fotos profissionais para minha pousada/hotel. Podemos conversar?" class="whatsapp-btn" target="_blank">
+                    <span>🏨</span> Fotografar minha pousada
+                </a>
+                <a href="https://wa.me/5581993187315?text=Olá! Quero agendar um ensaio fotográfico. Podemos conversar?" class="whatsapp-btn" target="_blank">
+                    <span>📸</span> Agendar meu ensaio
+                </a>
+                <a href="https://wa.me/5581993187315?text=Olá! Gostaria de saber mais sobre os serviços de fotografia." class="whatsapp-btn whatsapp-btn-outline" target="_blank">
+                    <span>💬</span> Outro assunto
+                </a>
+            </div>
         </div>
     </section>
 
@@ -1007,7 +1070,7 @@
                     if (s.locais) {
                         locaisHtml = `<div style="margin-top: 0.5rem; font-size: 0.85rem; color: var(--accent);">📍 ${s.locais.join(' · ')}</div>`;
                     }
-                    let ctaHtml = s.cta ? `<a href="#contato" class="btn-outline" onclick="document.getElementById('contato-msg').value='${s.cta_msg || ''}'">${s.cta}</a>` : `<a href="#contato" class="btn-outline">Solicitar orçamento</a>`;
+                    let ctaHtml = s.cta ? `<a href="https://wa.me/5581993187315?text=${encodeURIComponent(s.cta_msg || 'Olá! Gostaria de saber mais sobre os serviços de fotografia.')}" class="btn-outline" target="_blank">${s.cta}</a>` : `<a href="https://wa.me/5581993187315?text=${encodeURIComponent('Olá! Gostaria de saber mais sobre os serviços de fotografia.')}" class="btn-outline" target="_blank">Solicitar orçamento</a>`;
                     grid.innerHTML += `
                         <div class="service-card reveal">
                             <div class="service-icon">${s.icone}</div>
