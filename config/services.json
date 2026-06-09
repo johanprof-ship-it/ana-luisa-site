@@ -43,7 +43,8 @@
           ]
         }
       ],
-      "cta": "Boas fotos vendem antes do primeiro garfo!"
+      "cta": "Fotografar meu cardápio",
+      "cta_msg": "Quero fotos profissionais para meu restaurante"
     },
     {
       "id": "eventos",
@@ -82,7 +83,8 @@
           ]
         }
       ],
-      "cta": "Entre em contato e garanta as melhores lembranças do seu evento!"
+      "cta": "Cobrir meu evento",
+      "cta_msg": "Quero registrar meu evento"
     },
     {
       "id": "pousadas",
@@ -178,7 +180,8 @@
         "Edições com correção de luz, cor e enquadramento",
         "Não inclui gestão de redes sociais"
       ],
-      "cta": "Estou à disposição para entender as necessidades da sua pousada e criar o melhor plano para você!"
+      "cta": "Fotografar minha pousada",
+      "cta_msg": "Quero fotos profissionais para minha pousada"
     },
     {
       "id": "ensaios",
@@ -231,7 +234,8 @@
           ]
         }
       ],
-      "cta": "Entre em contato e garanta seu ensaio dos sonhos!"
+      "cta": "Agendar meu ensaio",
+      "cta_msg": "Quero agendar um ensaio fotográfico"
     }
   ],
   "contato": {

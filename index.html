@@ -905,7 +905,7 @@
                     <option>Outro</option>
                 </select>
                 <input type="text" placeholder="Data pretendida (ex: 15/08/2026)">
-                <textarea placeholder="Conte-me mais sobre o que você precisa..."></textarea>
+                <textarea id="contato-msg" placeholder="Conte-me mais sobre o que você precisa..."></textarea>
                 <button type="submit" class="btn-submit">Enviar mensagem</button>
             </form>
         </div>
@@ -1007,6 +1007,7 @@
                     if (s.locais) {
                         locaisHtml = `<div style="margin-top: 0.5rem; font-size: 0.85rem; color: var(--accent);">📍 ${s.locais.join(' · ')}</div>`;
                     }
+                    let ctaHtml = s.cta ? `<a href="#contato" class="btn-outline" onclick="document.getElementById('contato-msg').value='${s.cta_msg || ''}'">${s.cta}</a>` : `<a href="#contato" class="btn-outline">Solicitar orçamento</a>`;
                     grid.innerHTML += `
                         <div class="service-card reveal">
                             <div class="service-icon">${s.icone}</div>
@@ -1016,7 +1017,7 @@
                             ${locaisHtml}
                             <ul class="service-plans">${planosHtml}</ul>
                             ${beneficiosHtml}
-                            <a href="#contato" class="btn-outline">Solicitar orçamento</a>
+                            ${ctaHtml}
                         </div>
                     `;
                 });
