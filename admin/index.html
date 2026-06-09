@@ -5,8 +5,130 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta name="robots" content="noindex">
     <title>Painel Administrativo — Ana Luisa Santos</title>
+    <style>
+      body { font-family: -apple-system, sans-serif; display: flex; justify-content: center; align-items: center; min-height: 100vh; margin: 0; background: #0a0a0a; color: #f5f0eb; }
+      .box { background: #141414; padding: 2.5rem; border-radius: 12px; max-width: 380px; width: 90%; }
+      h1 { font-size: 1.3rem; margin-bottom: 0.3rem; text-align: center; }
+      .sub { color: #9a9590; text-align: center; margin-bottom: 2rem; font-size: 0.9rem; }
+      .tabs { display: flex; gap: 0; margin-bottom: 1.5rem; }
+      .tab { flex: 1; padding: 0.7rem; text-align: center; cursor: pointer; border: 1px solid #333; color: #9a9590; font-size: 0.85rem; transition: all 0.3s; }
+      .tab:first-child { border-radius: 6px 0 0 6px; }
+      .tab:last-child { border-radius: 0 6px 6px 0; }
+      .tab.active { background: #c9a96e; color: #0a0a0a; border-color: #c9a96e; font-weight: 600; }
+      input { width: 100%; padding: 0.8rem; margin-bottom: 1rem; background: #0a0a0a; border: 1px solid #333; border-radius: 6px; color: #f5f0eb; font-size: 0.95rem; box-sizing: border-box; }
+      input:focus { border-color: #c9a96e; outline: none; }
+      button { width: 100%; padding: 0.85rem; background: #c9a96e; color: #0a0a0a; border: none; border-radius: 6px; font-size: 0.95rem; cursor: pointer; font-weight: 600; transition: background 0.3s; }
+      button:hover { background: #dfc08a; }
+      .msg { margin-top: 1rem; text-align: center; font-size: 0.85rem; }
+      .msg.ok { color: #4caf50; }
+      .msg.err { color: #f44336; }
+      .hidden { display: none; }
+    </style>
   </head>
   <body>
-    <script src="https://unpkg.com/netlify-cms@^2.0.0/dist/netlify-cms.js"></script>
+    <div class="box">
+      <h1>📸 Ana Luisa Santos</h1>
+      <p class="sub">Painel Administrativo</p>
+
+      <div class="tabs">
+        <div class="tab active" onclick="showTab('login')">Entrar</div>
+        <div class="tab" onclick="showTab('signup')">Criar conta</div>
+      </div>
+
+      <!-- LOGIN -->
+      <div id="login">
+        <input type="email" id="loginEmail" placeholder="Email">
+        <input type="password" id="loginPass" placeholder="Senha">
+        <button onclick="doLogin()">Entrar</button>
+      </div>
+
+      <!-- SIGNUP -->
+      <div id="signup" class="hidden">
+        <input type="email" id="signupEmail" placeholder="Email">
+        <input type="password" id="signupPass" placeholder="Senha (mínimo 6 caracteres)">
+        <button onclick="doSignup()">Criar conta</button>
+      </div>
+
+      <div id="msg" class="msg hidden"></div>
+    </div>
+
+    <script>
+      const API = 'https://ana-luisa-photo.netlify.app/.netlify/identity';
+
+      function showTab(tab) {
+        document.querySelectorAll('.tab').forEach(t => t.classList.remove('active'));
+        document.getElementById('login').classList.add('hidden');
+        document.getElementById('signup').classList.add('hidden');
+        document.getElementById('msg').classList.add('hidden');
+        if (tab === 'login') {
+          document.querySelector('.tab:first-child').classList.add('active');
+          document.getElementById('login').classList.remove('hidden');
+        } else {
+          document.querySelector('.tab:last-child').classList.add('active');
+          document.getElementById('signup').classList.remove('hidden');
+        }
+      }
+
+      function showMsg(text, type) {
+        const el = document.getElementById('msg');
+        el.textContent = text;
+        el.className = 'msg ' + type;
+        el.classList.remove('hidden');
+      }
+
+      async function doLogin() {
+        const email = document.getElementById('loginEmail').value;
+        const pass = document.getElementById('loginPass').value;
+        try {
+          const r = await fetch(API + '/token', {
+            method: 'POST',
+            headers: {'Content-Type': 'application/json'},
+            body: JSON.stringify({email, password: pass, grant_type: 'password'})
+          });
+          const d = await r.json();
+          if (d.access_token) {
+            localStorage.setItem('netlifyIdentityToken', d.access_token);
+            localStorage.setItem('netlifyIdentityRefresh', d.refresh_token);
+            window.location.href = '/admin/#/';
+          } else {
+            showMsg(d.msg || 'Erro ao entrar', 'err');
+          }
+        } catch(e) { showMsg('Erro de conexão', 'err'); }
+      }
+
+      async function doSignup() {
+        const email = document.getElementById('signupEmail').value;
+        const pass = document.getElementById('signupPass').value;
+        try {
+          const r = await fetch(API + '/signup', {
+            method: 'POST',
+            headers: {'Content-Type': 'application/json'},
+            body: JSON.stringify({email, password: pass})
+          });
+          if (r.ok) {
+            showMsg('Conta criada! Fazendo login...', 'ok');
+            // Auto-login
+            setTimeout(async () => {
+              const r2 = await fetch(API + '/token', {
+                method: 'POST',
+                headers: {'Content-Type': 'application/json'},
+                body: JSON.stringify({email, password: pass, grant_type: 'password'})
+              });
+              const d = await r2.json();
+              if (d.access_token) {
+                localStorage.setItem('netlifyIdentityToken', d.access_token);
+                localStorage.setItem('netlifyIdentityRefresh', d.refresh_token);
+                window.location.href = '/admin/#/';
+              } else {
+                showMsg('Conta criada, mas login falhou. Tente na aba Entrar.', 'err');
+              }
+            }, 1000);
+          } else {
+            const d = await r.json();
+            showMsg(d.msg || 'Erro ao criar conta', 'err');
+          }
+        } catch(e) { showMsg('Erro de conexão', 'err'); }
+      }
+    </script>
   </body>
 </html>
