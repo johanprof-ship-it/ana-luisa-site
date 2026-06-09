@@ -663,10 +663,18 @@
             .hamburger { display: flex; }
             .gallery { grid-template-columns: 1fr; }
             .footer { flex-direction: column; gap: 1.5rem; text-align: center; }
-            .hero { flex-direction: column; }
-            .hero-photo { height: 50vh; }
-            .hero-content { padding: 2rem; }
+            .hero { flex-direction: column; height: auto; min-height: 100vh; }
+            .hero-photo { height: 40vh; min-height: 300px; }
+            .hero-content { padding: 2rem 1.5rem; }
+            .hero-label { font-size: 0.7rem; letter-spacing: 0.2em; }
+            .hero-title { font-size: 2rem; }
+            .hero-sub { font-size: 0.95rem; }
+            .hero-service { padding: 1rem; font-size: 0.9rem; }
             .nav-contact { display: none; }
+            .section-title { font-size: 1.5rem; }
+            .about-grid { grid-template-columns: 1fr; gap: 2rem; }
+            .services-grid { grid-template-columns: 1fr; }
+            .contact-grid { grid-template-columns: 1fr; gap: 2rem; }
         }
 
         /* SCROLL ANIMATIONS */
