@@ -9,9 +9,6 @@
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,700;1,400&family=Inter:wght@300;400;500&display=swap" rel="stylesheet">
     <style>
-        /* ═══════════════════════════════════════════
-           RESET & BASE
-           ═══════════════════════════════════════════ */
         *, *::before, *::after { margin: 0; padding: 0; box-sizing: border-box; }
         
         :root {
@@ -38,9 +35,7 @@
         a { color: inherit; text-decoration: none; }
         img { max-width: 100%; display: block; }
 
-        /* ═══════════════════════════════════════════
-           NAVIGATION
-           ═══════════════════════════════════════════ */
+        /* NAV */
         .nav {
             position: fixed;
             top: 0; left: 0; right: 0;
@@ -104,9 +99,7 @@
             transition: 0.3s;
         }
 
-        /* ═══════════════════════════════════════════
-           HERO
-           ═══════════════════════════════════════════ */
+        /* HERO */
         .hero {
             height: 100vh;
             min-height: 600px;
@@ -221,9 +214,7 @@
             to { opacity: 1; transform: translateY(0); }
         }
 
-        /* ═══════════════════════════════════════════
-           SECTIONS COMMON
-           ═══════════════════════════════════════════ */
+        /* SECTIONS COMMON */
         section { padding: 8rem 5%; }
 
         .section-header {
@@ -245,9 +236,7 @@
             font-weight: 400;
         }
 
-        /* ═══════════════════════════════════════════
-           PORTFOLIO
-           ═══════════════════════════════════════════ */
+        /* PORTFOLIO */
         #portfolio { background: var(--bg); }
 
         .gallery {
@@ -262,7 +251,6 @@
             position: relative;
             overflow: hidden;
             cursor: pointer;
-            aspect-ratio: auto;
         }
 
         .gallery-item:nth-child(1) { grid-row: span 2; aspect-ratio: 3/4; }
@@ -295,30 +283,7 @@
             font-style: italic;
         }
 
-        .gallery-cta {
-            text-align: center;
-            margin-top: 3rem;
-        }
-
-        .btn-outline {
-            display: inline-block;
-            padding: 0.9rem 2.2rem;
-            border: 1px solid rgba(201, 169, 110, 0.4);
-            color: var(--accent);
-            font-size: 0.8rem;
-            letter-spacing: 0.15em;
-            text-transform: uppercase;
-            transition: all 0.3s;
-        }
-
-        .btn-outline:hover {
-            border-color: var(--accent);
-            background: rgba(201, 169, 110, 0.1);
-        }
-
-        /* ═══════════════════════════════════════════
-           SOBRE
-           ═══════════════════════════════════════════ */
+        /* SOBRE */
         #sobre { background: var(--bg-light); }
 
         .about-grid {
@@ -386,14 +351,12 @@
             letter-spacing: 0.1em;
         }
 
-        /* ═══════════════════════════════════════════
-           SERVIÇOS
-           ═══════════════════════════════════════════ */
+        /* SERVIÇOS */
         #servicos { background: var(--bg); }
 
         .services-grid {
             display: grid;
-            grid-template-columns: repeat(3, 1fr);
+            grid-template-columns: repeat(2, 1fr);
             gap: 2rem;
             max-width: 1200px;
             margin: 0 auto;
@@ -403,7 +366,6 @@
             padding: 2.5rem 2rem;
             border: 1px solid rgba(255,255,255,0.06);
             transition: all 0.4s;
-            text-align: center;
         }
 
         .service-card:hover {
@@ -412,49 +374,75 @@
         }
 
         .service-icon {
-            font-size: 2rem;
+            font-size: 2.5rem;
             margin-bottom: 1.5rem;
         }
 
         .service-card h4 {
             font-family: var(--serif);
-            font-size: 1.2rem;
+            font-size: 1.3rem;
             font-weight: 400;
+            margin-bottom: 0.5rem;
+            color: var(--accent);
+        }
+
+        .service-card .service-subtitle {
+            font-size: 0.85rem;
+            color: var(--text-muted);
             margin-bottom: 1rem;
+            font-style: italic;
         }
 
         .service-card p {
             color: var(--text-muted);
             font-size: 0.9rem;
             font-weight: 300;
+            margin-bottom: 1rem;
         }
 
-        .service-price {
-            margin-top: 1.5rem;
-            font-family: var(--serif);
-            font-size: 1.4rem;
+        .service-plans {
+            list-style: none;
+            margin-top: 1rem;
+        }
+
+        .service-plans li {
+            display: flex;
+            justify-content: space-between;
+            padding: 0.7rem 0;
+            border-bottom: 1px solid rgba(255,255,255,0.06);
+            font-size: 0.85rem;
+        }
+
+        .service-plans li:last-child { border-bottom: none; }
+
+        .plan-name { color: var(--text); }
+        .plan-detail { color: var(--text-muted); font-size: 0.8rem; }
+        .plan-price { color: var(--accent); font-weight: 500; }
+
+        .btn-outline {
+            display: inline-block;
+            padding: 0.9rem 2.2rem;
+            border: 1px solid rgba(201, 169, 110, 0.4);
             color: var(--accent);
+            font-size: 0.8rem;
+            letter-spacing: 0.15em;
+            text-transform: uppercase;
+            transition: all 0.3s;
+            margin-top: 1.5rem;
         }
 
-        .service-price small {
-            font-size: 0.75rem;
-            color: var(--text-muted);
-            font-family: var(--sans);
+        .btn-outline:hover {
+            border-color: var(--accent);
+            background: rgba(201, 169, 110, 0.1);
         }
 
-        /* ═══════════════════════════════════════════
-           DEPOIMENTOS
-           ═══════════════════════════════════════════ */
+        /* DEPOIMENTOS */
         #depoimentos { background: var(--bg-light); }
 
         .testimonials {
             max-width: 800px;
             margin: 0 auto;
             text-align: center;
-        }
-
-        .testimonial {
-            padding: 0 2rem;
         }
 
         .testimonial-quote {
@@ -486,26 +474,7 @@
 
         .testimonial-author strong { color: var(--text); }
 
-        .dots {
-            display: flex;
-            justify-content: center;
-            gap: 0.5rem;
-            margin-top: 2.5rem;
-        }
-
-        .dot {
-            width: 8px; height: 8px;
-            border-radius: 50%;
-            background: rgba(255,255,255,0.15);
-            cursor: pointer;
-            transition: background 0.3s;
-        }
-
-        .dot.active { background: var(--accent); }
-
-        /* ═══════════════════════════════════════════
-           CONTATO
-           ═══════════════════════════════════════════ */
+        /* CONTATO */
         #contato { background: var(--bg); }
 
         .contact-grid {
@@ -544,9 +513,7 @@
             font-size: 0.95rem;
         }
 
-        .contact-details .icon {
-            font-size: 1.2rem;
-        }
+        .contact-details .icon { font-size: 1.2rem; }
 
         .contact-form {
             display: flex;
@@ -596,9 +563,7 @@
 
         .btn-submit:hover { background: var(--accent-hover); }
 
-        /* ═══════════════════════════════════════════
-           FOOTER
-           ═══════════════════════════════════════════ */
+        /* FOOTER */
         .footer {
             padding: 3rem 5%;
             border-top: 1px solid rgba(255,255,255,0.06);
@@ -607,20 +572,10 @@
             align-items: center;
         }
 
-        .footer-logo {
-            font-family: var(--serif);
-            font-size: 1.1rem;
-        }
+        .footer-logo { font-family: var(--serif); font-size: 1.1rem; }
+        .footer-text { font-size: 0.8rem; color: var(--text-muted); }
 
-        .footer-text {
-            font-size: 0.8rem;
-            color: var(--text-muted);
-        }
-
-        .social-links {
-            display: flex;
-            gap: 1.5rem;
-        }
+        .social-links { display: flex; gap: 1.5rem; }
 
         .social-links a {
             color: var(--text-muted);
@@ -630,17 +585,33 @@
 
         .social-links a:hover { color: var(--accent); }
 
-        /* ═══════════════════════════════════════════
-           RESPONSIVE
-           ═══════════════════════════════════════════ */
+        /* LIGHTBOX */
+        .lightbox {
+            position: fixed;
+            inset: 0;
+            background: rgba(0,0,0,0.95);
+            z-index: 200;
+            display: none;
+            justify-content: center;
+            align-items: center;
+            cursor: pointer;
+        }
+
+        .lightbox.open { display: flex; }
+
+        .lightbox img {
+            max-width: 90vw;
+            max-height: 90vh;
+            object-fit: contain;
+        }
+
+        /* RESPONSIVE */
         @media (max-width: 900px) {
-            .gallery {
-                grid-template-columns: 1fr 1fr;
-            }
+            .gallery { grid-template-columns: 1fr 1fr; }
             .gallery-item:nth-child(1) { grid-row: span 1; }
             .gallery-item:nth-child(4) { grid-column: span 1; }
             .about-grid { grid-template-columns: 1fr; gap: 3rem; }
-            .services-grid { grid-template-columns: 1fr; max-width: 500px; }
+            .services-grid { grid-template-columns: 1fr; }
             .contact-grid { grid-template-columns: 1fr; }
             .form-row { grid-template-columns: 1fr; }
         }
@@ -663,9 +634,7 @@
             .footer { flex-direction: column; gap: 1.5rem; text-align: center; }
         }
 
-        /* ═══════════════════════════════════════════
-           SCROLL ANIMATIONS
-           ═══════════════════════════════════════════ */
+        /* SCROLL ANIMATIONS */
         .reveal {
             opacity: 0;
             transform: translateY(40px);
@@ -675,28 +644,6 @@
         .reveal.visible {
             opacity: 1;
             transform: translateY(0);
-        }
-
-        /* ═══════════════════════════════════════════
-           LIGHTBOX
-           ═══════════════════════════════════════════ */
-        .lightbox {
-            position: fixed;
-            inset: 0;
-            background: rgba(0,0,0,0.95);
-            z-index: 200;
-            display: none;
-            justify-content: center;
-            align-items: center;
-            cursor: pointer;
-        }
-
-        .lightbox.open { display: flex; }
-
-        .lightbox img {
-            max-width: 90vw;
-            max-height: 90vh;
-            object-fit: contain;
         }
     </style>
 </head>
@@ -722,14 +669,14 @@
         <div class="hero-bg"></div>
         <div class="hero-content">
             <p class="hero-label">Fotografia Profissional</p>
-            <h1 class="hero-title">Registros que<br>vivem pra <em>sempre</em></h1>
-            <p class="hero-sub">Transformo momentos especiais em memórias eternas. Cada clique conta uma história.</p>
+            <h1 class="hero-title">Momentos que viram<br><em>memórias</em></h1>
+            <p class="hero-sub">Registros especiais para momentos inesquecíveis. Cada clique conta uma história.</p>
             <a href="#contato" class="hero-cta">Agende sua sessão</a>
         </div>
         <div class="scroll-indicator"><span></span></div>
     </section>
 
-    <!-- PORTFÓLIO -->
+    <!-- PORTFOLIO -->
     <section id="portfolio">
         <div class="section-header reveal">
             <p class="section-label">Portfólio</p>
@@ -749,20 +696,17 @@
                 <div class="gallery-overlay"><span>Evento</span></div>
             </div>
             <div class="gallery-item">
-                <img src="https://images.unsplash.com/photo-1522673607200-164d1b6ce486?w=1200&q=80" alt="Paisagem" loading="lazy">
-                <div class="gallery-overlay"><span>Paisagem</span></div>
+                <img src="https://images.unsplash.com/photo-1522673607200-164d1b6ce486?w=1200&q=80" alt="Gastronomia" loading="lazy">
+                <div class="gallery-overlay"><span>Gastronomia</span></div>
             </div>
             <div class="gallery-item">
-                <img src="https://images.unsplash.com/photo-1544005313-94ddf0286df2?w=800&q=80" alt="Retrato" loading="lazy">
-                <div class="gallery-overlay"><span>Retrato</span></div>
+                <img src="https://images.unsplash.com/photo-1544005313-94ddf0286df2?w=800&q=80" alt="Ensaio" loading="lazy">
+                <div class="gallery-overlay"><span>Ensaio</span></div>
             </div>
             <div class="gallery-item">
-                <img src="https://images.unsplash.com/photo-1511285560929-80b456fea0bc?w=800&q=80" alt="Casamento" loading="lazy">
-                <div class="gallery-overlay"><span>Casamento</span></div>
+                <img src="https://images.unsplash.com/photo-1511285560929-80b456fea0bc?w=800&q=80" alt="Pousada" loading="lazy">
+                <div class="gallery-overlay"><span>Pousada</span></div>
             </div>
-        </div>
-        <div class="gallery-cta reveal">
-            <a href="#contato" class="btn-outline">Ver portfólio completo</a>
         </div>
     </section>
 
@@ -776,19 +720,20 @@
                 <p class="section-label">Sobre mim</p>
                 <h3>Olá, eu sou a Ana Luisa</h3>
                 <p>Fotógrafa apaixonada por capturar a essência de cada momento. Acredito que todas as histórias merecem ser contadas com beleza e autenticidade.</p>
-                <p>Com olhar atento aos detalhes e sensibilidade para emocões, cada sessão é única — porque você e sua história são únicos.</p>
+                <p>Com olhar atento aos detalhes e sensibilidade para emoções, cada sessão é única — porque você e sua história são únicos.</p>
+                <p class="section-label" style="margin-top: 2rem;">Memórias que viram histórias.</p>
                 <div class="about-stats">
                     <div>
-                        <div class="stat-number">100+</div>
-                        <div class="stat-label">Sessões</div>
-                    </div>
-                    <div>
-                        <div class="stat-number">50+</div>
-                        <div class="stat-label">Casamentos</div>
-                    </div>
-                    <div>
                         <div class="stat-number">5+</div>
-                        <div class="stat-label">Anos</div>
+                        <div class="stat-label">Anos de experiência</div>
+                    </div>
+                    <div>
+                        <div class="stat-number">100+</div>
+                        <div class="stat-label">Sessões realizadas</div>
+                    </div>
+                    <div>
+                        <div class="stat-number">100%</div>
+                        <div class="stat-label">Dedicação</div>
                     </div>
                 </div>
             </div>
@@ -799,27 +744,102 @@
     <section id="servicos">
         <div class="section-header reveal">
             <p class="section-label">Serviços</p>
-            <h2 class="section-title">Como posso te ajudar</h2>
+            <h2 class="section-title">Planos de fotografia</h2>
         </div>
         <div class="services-grid">
+
+            <!-- GASTRONOMIA -->
             <div class="service-card reveal">
-                <div class="service-icon">💍</div>
-                <h4>Casamentos</h4>
-                <p>Registre o dia mais especial da sua vida com fotos cheias de emoção e amor.</p>
-                <div class="service-price">A partir de R$ 1.500 <br><small>Sessão completa</small></div>
+                <div class="service-icon">🍽️</div>
+                <h4>Gastronomia</h4>
+                <p class="service-subtitle">Sabores que encantam. Fotos que vendem.</p>
+                <p>Fotos profissionais para restaurantes e bares. Valorize seu cardápio e atraia mais clientes.</p>
+                <ul class="service-plans">
+                    <li>
+                        <div><span class="plan-name">Básico</span><br><span class="plan-detail">1h · 20 fotos editadas</span></div>
+                        <span class="plan-price">R$ 250</span>
+                    </li>
+                    <li>
+                        <div><span class="plan-name">Intermediário</span><br><span class="plan-detail">2h · 40 fotos · pratos, bebidas e ambiente</span></div>
+                        <span class="plan-price">R$ 400</span>
+                    </li>
+                    <li>
+                        <div><span class="plan-name">Completo</span><br><span class="plan-detail">3h · 60 fotos · para cardápios e redes sociais</span></div>
+                        <span class="plan-price">R$ 600</span>
+                    </li>
+                </ul>
+                <a href="#contato" class="btn-outline">Solicitar orçamento</a>
             </div>
-            <div class="service-card reveal">
-                <div class="service-icon">📸</div>
-                <h4>Retratos</h4>
-                <p>Sessões individuais, em casal ou familiares. Mostre sua essência através das imagens.</p>
-                <div class="service-price">A partir de R$ 300 <br><small>Por sessão</small></div>
-            </div>
+
+            <!-- EVENTOS -->
             <div class="service-card reveal">
                 <div class="service-icon">🎉</div>
                 <h4>Eventos</h4>
-                <p>Aniversários, formaturas, batizados e celebrações. Cada momento importante documentado.</p>
-                <div class="service-price">A partir de R$ 800 <br><small>Por evento</small></div>
+                <p class="service-subtitle">Registrou, viveu, para sempre.</p>
+                <p>Cobertura de aniversários, festas e celebrações. Cada sorriso, cada abraço, cada detalhe importa.</p>
+                <ul class="service-plans">
+                    <li>
+                        <div><span class="plan-name">2 horas</span><br><span class="plan-detail">Até 100 fotos · cobertura completa</span></div>
+                        <span class="plan-price">R$ 300</span>
+                    </li>
+                    <li>
+                        <div><span class="plan-name">4 horas</span><br><span class="plan-detail">Até 200 fotos · cobertura completa</span></div>
+                        <span class="plan-price">R$ 600</span>
+                    </li>
+                </ul>
+                <a href="#contato" class="btn-outline">Solicitar orçamento</a>
             </div>
+
+            <!-- POUSADA -->
+            <div class="service-card reveal">
+                <div class="service-icon">🏨</div>
+                <h4>Pousadas & Hotéis</h4>
+                <p class="service-subtitle">Imagens que valorizam experiências e atraem hóspedes.</p>
+                <p>Fotos profissionais para Booking, Airbnb e redes sociais. Aumente suas reservas com imagens que abrem o apetite.</p>
+                <ul class="service-plans">
+                    <li>
+                        <div><span class="plan-name">Pacote Avulso</span><br><span class="plan-detail">Sessão completa · até 100 fotos</span></div>
+                        <span class="plan-price">R$ 800</span>
+                    </li>
+                    <li>
+                        <div><span class="plan-name">Plano Semestral</span><br><span class="plan-detail">2 sessões · 80 fotos/sessão</span></div>
+                        <span class="plan-price">R$ 1.200</span>
+                    </li>
+                    <li>
+                        <div><span class="plan-name">Plano Anual</span><br><span class="plan-detail">4 sessões · atualização constante</span></div>
+                        <span class="plan-price">R$ 1.700</span>
+                    </li>
+                    <li>
+                        <div><span class="plan-name">Redes Sociais</span><br><span class="plan-detail">Sessão · até 60 fotos</span></div>
+                        <span class="plan-price">R$ 500</span>
+                    </li>
+                </ul>
+                <a href="#contato" class="btn-outline">Solicitar orçamento</a>
+            </div>
+
+            <!-- ENSAIOS -->
+            <div class="service-card reveal">
+                <div class="service-icon">📸</div>
+                <h4>Ensaios</h4>
+                <p class="service-subtitle">Fotografias na paisagem do paraíso.</p>
+                <p>Ensaios de casais e famílias em Porto de Galinhas e Pontal do Maracaípe. Cenários paradisíacos para fotos inesquecíveis.</p>
+                <ul class="service-plans">
+                    <li>
+                        <div><span class="plan-name">30 minutos</span><br><span class="plan-detail">Até 20 fotos · 1 troca de roupa</span></div>
+                        <span class="plan-price">R$ 150</span>
+                    </li>
+                    <li>
+                        <div><span class="plan-name">1 hora</span><br><span class="plan-detail">Até 40 fotos · 2 trocas de roupa</span></div>
+                        <span class="plan-price">R$ 300</span>
+                    </li>
+                    <li>
+                        <div><span class="plan-name">Pôr do sol</span><br><span class="plan-detail">Até 40 fotos · a luz mais linda do dia</span></div>
+                        <span class="plan-price">R$ 300</span>
+                    </li>
+                </ul>
+                <a href="#contato" class="btn-outline">Solicitar orçamento</a>
+            </div>
+
         </div>
     </section>
 
@@ -831,13 +851,8 @@
         </div>
         <div class="testimonials reveal">
             <div class="testimonial">
-                <p class="testimonial-quote">Ana Luisa tem um dom especial para capturar emoções. Nossa fotos de casamento ficaram perfeitas — cada imagem conta uma história.</p>
-                <p class="testimonial-author"><strong>Mariana & Pedro</strong> — Casamento, 2024</p>
-            </div>
-            <div class="dots">
-                <span class="dot active"></span>
-                <span class="dot"></span>
-                <span class="dot"></span>
+                <p class="testimonial-quote">Ana Luisa tem um dom especial para capturar emoções. Nossas fotos ficaram perfeitas — cada imagem conta uma história.</p>
+                <p class="testimonial-author"><strong>Mariana & Pedro</strong> — Ensaio de casal, Porto de Galinhas</p>
             </div>
         </div>
     </section>
@@ -851,12 +866,12 @@
         <div class="contact-grid">
             <div class="contact-info reveal">
                 <h3>Agende sua sessão</h3>
-                <p>Estou pronta para transformar seus momentos especiais em memórias eternas. Entre em contato!</p>
+                <p>Do clique à entrega, cuidamos de cada detalhe para contar a história do seu sabor. Entre em contato!</p>
                 <ul class="contact-details">
-                    <li><span class="icon">📱</span> (81) 99292-4011</li>
+                    <li><span class="icon">📱</span> (81) 99318-7315</li>
                     <li><span class="icon">💬</span> WhatsApp disponível</li>
+                    <li><span class="icon">📸</span> @luisa0_202</li>
                     <li><span class="icon">📍</span> Recife, PE — Brasil</li>
-                    <li><span class="icon">📸</span> @analuisafotografia</li>
                 </ul>
             </div>
             <form class="contact-form reveal" onsubmit="handleSubmit(event)">
@@ -866,11 +881,11 @@
                 </div>
                 <select required>
                     <option value="" disabled selected>Tipo de sessão</option>
-                    <option>Casamento</option>
-                    <option>Retrato individual</option>
-                    <option>Retrato em casal</option>
-                    <option>Família</option>
-                    <option>Evento</option>
+                    <option>Gastronomia</option>
+                    <option>Evento / Aniversário</option>
+                    <option>Pousada / Hotel</option>
+                    <option>Ensaio de casal</option>
+                    <option>Ensaio de família</option>
                     <option>Outro</option>
                 </select>
                 <input type="text" placeholder="Data pretendida (ex: 15/08/2026)">
@@ -885,9 +900,8 @@
         <div class="footer-logo">Ana Luisa Santos</div>
         <p class="footer-text">© 2026 — Todos os direitos reservados</p>
         <div class="social-links">
-            <a href="#">Instagram</a>
-            <a href="#">WhatsApp</a>
-            <a href="/admin" style="opacity:0.3;font-size:0.7rem;">Admin</a>
+            <a href="https://instagram.com/luisa0_202">Instagram</a>
+            <a href="https://wa.me/5581993187315">WhatsApp</a>
         </div>
     </footer>
 
@@ -897,11 +911,6 @@
     </div>
 
     <script>
-        // REDIRECT INVITE TOKEN TO CMS
-        if (window.location.hash && window.location.hash.includes('invite_token')) {
-            window.location.href = '/admin/' + window.location.hash;
-        }
-
         // NAV SCROLL
         const nav = document.getElementById('nav');
         window.addEventListener('scroll', () => {
@@ -937,7 +946,7 @@
             });
         });
 
-        // FORM (placeholder — will send to email/WhatsApp)
+        // FORM
         function handleSubmit(e) {
             e.preventDefault();
             alert('Mensagem enviada! Em breve entro em contato. 📸');
