@@ -119,112 +119,136 @@
             min-height: 600px;
             display: flex;
             flex-direction: column;
-            justify-content: center;
-            align-items: center;
-            text-align: center;
             position: relative;
             overflow: hidden;
         }
 
-        .hero-bg {
+        .hero-split {
+            display: flex;
+            height: 100%;
+        }
+
+        .hero-side {
+            flex: 1;
+            position: relative;
+            overflow: hidden;
+            display: flex;
+            align-items: flex-end;
+            transition: flex 0.5s ease;
+        }
+
+        .hero-side:hover {
+            flex: 1.2;
+        }
+
+        .hero-side-bg {
             position: absolute;
             inset: 0;
-            background: 
-                linear-gradient(135deg, rgba(10,10,10,0.5), rgba(10,10,10,0.2)),
-                url('uploads/hero-couple.png') center/cover;
+            background-size: cover;
+            background-position: center;
+            transition: transform 0.5s ease;
+        }
+
+        .hero-side:hover .hero-side-bg {
             transform: scale(1.05);
-            animation: heroZoom 20s ease-in-out infinite alternate;
         }
 
-        @keyframes heroZoom {
-            from { transform: scale(1.05); }
-            to { transform: scale(1.12); }
+        .hero-b2c .hero-side-bg {
+            filter: brightness(0.7);
         }
 
-        .hero-content {
+        .hero-b2b .hero-side-bg {
+            filter: brightness(0.6);
+        }
+
+        .hero-side-content {
             position: relative;
             z-index: 2;
-            padding: 2rem;
+            padding: 3rem;
+            width: 100%;
         }
 
-        .hero-label {
-            font-size: 0.8rem;
+        .hero-side-label {
+            font-size: 0.75rem;
             letter-spacing: 0.3em;
             text-transform: uppercase;
             color: var(--accent);
-            margin-bottom: 1.5rem;
-            opacity: 0;
-            animation: fadeUp 1s 0.3s forwards;
+            margin-bottom: 0.5rem;
         }
 
-        .hero-title {
+        .hero-side-title {
             font-family: var(--serif);
-            font-size: clamp(2.5rem, 7vw, 5rem);
+            font-size: clamp(1.5rem, 3vw, 2.2rem);
             font-weight: 400;
-            line-height: 1.15;
-            margin-bottom: 1.5rem;
-            opacity: 0;
-            animation: fadeUp 1s 0.6s forwards;
+            line-height: 1.2;
+            margin-bottom: 0.5rem;
         }
 
-        .hero-title em {
+        .hero-side-title em {
             font-style: italic;
             color: var(--accent);
         }
 
-        .hero-sub {
-            font-size: 1.05rem;
-            color: var(--text-muted);
+        .hero-side-sub {
+            font-size: 0.9rem;
+            color: rgba(255,255,255,0.8);
             font-weight: 300;
-            max-width: 500px;
-            margin: 0 auto 2.5rem;
-            opacity: 0;
-            animation: fadeUp 1s 0.9s forwards;
+            margin-bottom: 1.5rem;
+            max-width: 300px;
         }
 
-        .hero-cta {
+        .hero-side-cta {
             display: inline-block;
-            padding: 1rem 2.5rem;
+            padding: 0.8rem 1.5rem;
             border: 1px solid var(--accent);
             color: var(--accent);
             font-size: 0.8rem;
-            letter-spacing: 0.2em;
+            letter-spacing: 0.15em;
             text-transform: uppercase;
-            transition: all 0.4s;
-            opacity: 0;
-            animation: fadeUp 1s 1.2s forwards;
+            transition: all 0.3s;
         }
 
-        .hero-cta:hover {
+        .hero-side-cta:hover {
             background: var(--accent);
             color: var(--bg);
         }
 
-        .scroll-indicator {
+        .hero-center {
             position: absolute;
-            bottom: 3rem;
+            top: 50%;
             left: 50%;
-            transform: translateX(-50%);
-            z-index: 2;
-            opacity: 0;
-            animation: fadeUp 1s 1.5s forwards;
+            transform: translate(-50%, -50%);
+            z-index: 10;
+            text-align: center;
+            pointer-events: none;
         }
 
-        .scroll-indicator span {
-            display: block;
-            width: 1px; height: 60px;
-            background: linear-gradient(to bottom, var(--accent), transparent);
-            animation: scrollPulse 2s infinite;
+        .hero-center-content {
+            background: rgba(10, 10, 10, 0.8);
+            backdrop-filter: blur(20px);
+            padding: 2rem 3rem;
+            border: 1px solid rgba(201, 169, 110, 0.3);
         }
 
-        @keyframes scrollPulse {
-            0%, 100% { opacity: 1; transform: scaleY(1); }
-            50% { opacity: 0.4; transform: scaleY(0.6); }
+        .hero-center-title {
+            font-family: var(--serif);
+            font-size: clamp(2rem, 5vw, 3rem);
+            font-weight: 400;
+            margin-bottom: 0.3rem;
         }
 
-        @keyframes fadeUp {
-            from { opacity: 0; transform: translateY(30px); }
-            to { opacity: 1; transform: translateY(0); }
+        .hero-center-sub {
+            font-size: 0.85rem;
+            letter-spacing: 0.3em;
+            text-transform: uppercase;
+            color: var(--accent);
+            margin-bottom: 0.5rem;
+        }
+
+        .hero-center-tagline {
+            font-size: 0.9rem;
+            color: var(--text-muted);
+            font-style: italic;
         }
 
         /* SECTIONS COMMON */
@@ -691,6 +715,11 @@
             .hamburger { display: flex; }
             .gallery { grid-template-columns: 1fr; }
             .footer { flex-direction: column; gap: 1.5rem; text-align: center; }
+            .hero-split { flex-direction: column; }
+            .hero-side { min-height: 50vh; }
+            .hero-side:hover { flex: 1; }
+            .hero-center-content { padding: 1.5rem 2rem; }
+            .nav-contact { display: none; }
         }
 
         /* SCROLL ANIMATIONS */
@@ -729,14 +758,33 @@
 
     <!-- HERO -->
     <section class="hero" id="hero">
-        <div class="hero-bg"></div>
-        <div class="hero-content">
-            <p class="hero-label">Fotografia Profissional</p>
-            <h1 class="hero-title">Momentos que viram<br><em>memórias</em></h1>
-            <p class="hero-sub">Registros especiais para momentos inesquecíveis. Cada clique conta uma história.</p>
-            <a href="#contato" class="hero-cta">Agende sua sessão</a>
+        <div class="hero-split">
+            <div class="hero-side hero-b2c">
+                <div class="hero-side-bg" style="background-image: url('uploads/hero-b2c.png')"></div>
+                <div class="hero-side-content">
+                    <p class="hero-side-label">Ensaios & Famílias</p>
+                    <h2 class="hero-side-title">Capturez vos <em>souvenirs</em></h2>
+                    <p class="hero-side-sub">Ensaios de casais e famílias em Porto de Galinhas e Pontal do Maracaípe.</p>
+                    <a href="https://wa.me/5581993187315?text=Olá! Quero agendar um ensaio fotográfico. Podemos conversar?" class="hero-side-cta" target="_blank">Agendar meu ensaio</a>
+                </div>
+            </div>
+            <div class="hero-side hero-b2b">
+                <div class="hero-side-bg" style="background-image: url('uploads/hero-b2b.png')"></div>
+                <div class="hero-side-content">
+                    <p class="hero-side-label">Pousadas & Restaurantes</p>
+                    <h2 class="hero-side-title">Sublimez votre <em>établissement</em></h2>
+                    <p class="hero-side-sub">Fotos profissionais para Booking, Airbnb, cardápios e redes sociais.</p>
+                    <a href="https://wa.me/5581993187315?text=Olá! Quero fotos profissionais para minha pousada/restaurante. Podemos conversar?" class="hero-side-cta" target="_blank">Fotografar meu negócio</a>
+                </div>
+            </div>
         </div>
-        <div class="scroll-indicator"><span></span></div>
+        <div class="hero-center">
+            <div class="hero-center-content">
+                <h1 class="hero-center-title">Ana Luisa Santos</h1>
+                <p class="hero-center-sub">Fotografia Profissional</p>
+                <p class="hero-center-tagline">Momentos que viram memórias. Memórias que viram histórias.</p>
+            </div>
+        </div>
     </section>
 
     <!-- PORTFOLIO -->
