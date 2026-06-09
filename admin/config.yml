@@ -4,6 +4,7 @@ backend:
 
 media_folder: "uploads"
 public_folder: "/uploads"
+locale: pt
 
 collections:
   - name: "config"
@@ -17,7 +18,6 @@ collections:
           - { label: "Tagline", name: "tagline", widget: "string" }
           - { label: "Descrição", name: "descricao", widget: "text" }
           - { label: "Telefone", name: "telefone", widget: "string" }
-          - { label: "Email", name: "email", widget: "string" }
           - { label: "Instagram", name: "instagram", widget: "string" }
           - { label: "Localização", name: "localizacao", widget: "string" }
 
