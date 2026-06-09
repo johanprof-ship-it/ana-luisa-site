@@ -897,6 +897,11 @@
     </div>
 
     <script>
+        // REDIRECT INVITE TOKEN TO CMS
+        if (window.location.hash && window.location.hash.includes('invite_token')) {
+            window.location.href = '/admin/' + window.location.hash;
+        }
+
         // NAV SCROLL
         const nav = document.getElementById('nav');
         window.addEventListener('scroll', () => {
