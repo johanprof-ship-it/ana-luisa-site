@@ -1,0 +1,100 @@
+{
+  "servicos": [
+    {
+      "id": "gastronomia",
+      "icone": "🍽️",
+      "nome": "Gastronomia",
+      "subtitulo": "Sabores que encantam. Fotos que vendem.",
+      "descricao": "Fotos profissionais para restaurantes e bares. Valorize seu cardápio e atraia mais clientes.",
+      "planos": [
+        {
+          "nome": "Básico",
+          "detalhes": "1h · 20 fotos editadas",
+          "preco": "R$ 250"
+        },
+        {
+          "nome": "Intermediário",
+          "detalhes": "2h · 40 fotos · pratos, bebidas e ambiente",
+          "preco": "R$ 400"
+        },
+        {
+          "nome": "Completo",
+          "detalhes": "3h · 60 fotos · para cardápios e redes sociais",
+          "preco": "R$ 600"
+        }
+      ]
+    },
+    {
+      "id": "eventos",
+      "icone": "🎉",
+      "nome": "Eventos",
+      "subtitulo": "Registrou, viveu, para sempre.",
+      "descricao": "Cobertura de aniversários, festas e celebrações. Cada sorriso, cada abraço, cada detalhe importa.",
+      "planos": [
+        {
+          "nome": "2 horas",
+          "detalhes": "Até 100 fotos · cobertura completa",
+          "preco": "R$ 300"
+        },
+        {
+          "nome": "4 horas",
+          "detalhes": "Até 200 fotos · cobertura completa",
+          "preco": "R$ 600"
+        }
+      ]
+    },
+    {
+      "id": "pousadas",
+      "icone": "🏨",
+      "nome": "Pousadas & Hotéis",
+      "subtitulo": "Imagens que valorizam experiências e atraem hóspedes.",
+      "descricao": "Fotos profissionais para Booking, Airbnb e redes sociais. Aumente suas reservas com imagens que abrem o apetite.",
+      "planos": [
+        {
+          "nome": "Pacote Avulso",
+          "detalhes": "Sessão completa · até 100 fotos",
+          "preco": "R$ 800"
+        },
+        {
+          "nome": "Plano Semestral",
+          "detalhes": "2 sessões · 80 fotos/sessão",
+          "preco": "R$ 1.200"
+        },
+        {
+          "nome": "Plano Anual",
+          "detalhes": "4 sessões · atualização constante",
+          "preco": "R$ 1.700"
+        },
+        {
+          "nome": "Redes Sociais",
+          "detalhes": "Sessão · até 60 fotos",
+          "preco": "R$ 500"
+        }
+      ]
+    },
+    {
+      "id": "ensaios",
+      "icone": "📸",
+      "nome": "Ensaios",
+      "subtitulo": "Fotografias na paisagem do paraíso.",
+      "descricao": "Ensaios de casais e famílias em Porto de Galinhas e Pontal do Maracaípe. Cenários paradisíacos para fotos inesquecíveis.",
+      "planos": [
+        {
+          "nome": "30 minutos",
+          "detalhes": "Até 20 fotos · 1 troca de roupa",
+          "preco": "R$ 150"
+        },
+        {
+          "nome": "1 hora",
+          "detalhes": "Até 40 fotos · 2 trocas de roupa",
+          "preco": "R$ 300"
+        },
+        {
+          "nome": "Pôr do sol",
+          "detalhes": "Até 40 fotos · a luz mais linda do dia",
+          "preco": "R$ 300"
+        }
+      ]
+    }
+  ]
+}

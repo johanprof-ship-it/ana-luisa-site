@@ -968,6 +968,39 @@
             alert('Mensagem enviada! Em breve entro em contato. 📸');
             e.target.reset();
         }
+
+        // LOAD SERVICES FROM JSON
+        async function loadServices() {
+            try {
+                const resp = await fetch('/config/services.json');
+                const data = await resp.json();
+                const grid = document.querySelector('.services-grid');
+                grid.innerHTML = '';
+                data.servicos.forEach(s => {
+                    let planosHtml = s.planos.map(p => `
+                        <li>
+                            <div><span class="plan-name">${p.nome}</span><br><span class="plan-detail">${p.detalhes}</span></div>
+                            <span class="plan-price">${p.preco}</span>
+                        </li>
+                    `).join('');
+                    grid.innerHTML += `
+                        <div class="service-card reveal">
+                            <div class="service-icon">${s.icone}</div>
+                            <h4>${s.nome}</h4>
+                            <p class="service-subtitle">${s.subtitulo}</p>
+                            <p>${s.descricao}</p>
+                            <ul class="service-plans">${planosHtml}</ul>
+                            <a href="#contato" class="btn-outline">Solicitar orçamento</a>
+                        </div>
+                    `;
+                });
+                // Re-observe new elements for scroll animation
+                document.querySelectorAll('.service-card.reveal').forEach(el => observer.observe(el));
+            } catch(e) {
+                console.log('Services JSON not found, using default HTML');
+            }
+        }
+        loadServices();
     </script>
 
 </body>

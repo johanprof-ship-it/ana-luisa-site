@@ -20,6 +20,27 @@ collections:
           - { label: "Telefone", name: "telefone", widget: "string" }
           - { label: "Instagram", name: "instagram", widget: "string" }
           - { label: "Localização", name: "localizacao", widget: "string" }
+      - name: "services"
+        label: "Serviços e Preços"
+        file: "config/services.json"
+        fields:
+          - label: "Serviços"
+            name: "servicos"
+            widget: "list"
+            allow_add: true
+            fields:
+              - { label: "Ícone", name: "icone", widget: "string" }
+              - { label: "Nome", name: "nome", widget: "string" }
+              - { label: "Subtítulo", name: "subtitulo", widget: "string" }
+              - { label: "Descrição", name: "descricao", widget: "text" }
+              - label: "Planos"
+                name: "planos"
+                widget: "list"
+                allow_add: true
+                fields:
+                  - { label: "Nome", name: "nome", widget: "string" }
+                  - { label: "Detalhes", name: "detalhes", widget: "string" }
+                  - { label: "Preço", name: "preco", widget: "string" }
 
   - name: "portfolio"
     label: "Portfólio"
